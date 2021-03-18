@@ -7,10 +7,10 @@ def timing_func(f):
         return (stop - start)
     return wrapper
 
-@timing_func
 def fun1():
     print("lalala")
     time.sleep(1)
+fun1 = timong_func(f)
 
 @timing_func
 def fun2():
