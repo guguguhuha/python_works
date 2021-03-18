@@ -1,6 +1,6 @@
 def call_print(f):
     def g():
-        print("you\'re call %s function"%(f))
+        print("you\'re call %s function"%(f.__name__,))
     return g
 
 @call_print
