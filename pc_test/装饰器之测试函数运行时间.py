@@ -10,7 +10,7 @@ def timing_func(f):
 def fun1():
     print("lalala")
     time.sleep(1)
-fun1 = timong_func(f)
+fun1 = timong_func(fun1)
 
 @timing_func
 def fun2():
