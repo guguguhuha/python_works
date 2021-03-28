@@ -3,9 +3,9 @@ def call_print(f):
         print("you\'re call %s function"%(f.__name__,))
     return g
 
-@call_print
 def fun_1():
     pass
+fun1 = call_print(fun1)
 
 @call_print
 def fun_2():
