@@ -6,8 +6,8 @@ import time
 def sender_mail():
     smt_p=smtplib.SMTP()
     smt_p.connect(host='smtp.qq.com',port=25)
-    sender , password = 'guguguhuha@qq.com',"cvigzkpfyimfdccg"
-    # sender , password = '2522357064@qq.com',"pkgdgkrcfxxmecdb"
+    sender , password = 'guguguhuha@qq.com',"********************"
+    # sender , password = '2522357064@qq.com',"***************"
     smt_p.login(sender,password)
     receiver_addresses,count_num=['2805605509@qq.com'],1
 #    while count_num<=3:
