@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="D:\Data\PYTHON_ENV\SCRAPY_ENV"
+$env:VIRTUAL_ENV="D:\Data\GIT\python_Practice\PYTHON_ENV\SCRAPY_ENV"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

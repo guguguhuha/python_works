@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Data\PYTHON_ENV\DIGIFAX_ENV"
+VIRTUAL_ENV="D:\Data\GIT\python_Practice\PYTHON_ENV\DIGIFAX_ENV"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

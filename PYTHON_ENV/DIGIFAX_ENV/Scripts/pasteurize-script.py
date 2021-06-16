@@ -1,4 +1,4 @@
-#!d:\data\python_env\digifax_env\scripts\python.exe
+#!d:\data\git\python_practice\python_env\digifax_env\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.17.1','console_scripts','pasteurize'
 import re
 import sys
