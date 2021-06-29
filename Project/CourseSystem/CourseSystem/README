@@ -1,0 +1,35 @@
+一些信息
+
+作者：HighLight_FanYa & guguguhuha
+时间： 2021.6.29
+版本： V 1.0 基础版
+
+程序介绍：
+​		实现一个最基本的选课系统
+
+程序结构：
+
+|—— README 	说明文档
+|—— start.py	 执行程序
+|—— conf  配置文件
+|	└──setting.py 	配置信息
+|——core 	主程序逻辑
+|	|— src.py	主程序
+|	|— admin.py	管理员视图
+|	|— teacher.py	教师视图
+|	└──student.py	学生视图
+|—— db	数据处理
+|	|— Admin	——|
+|	|— Course   ——|—
+|	|— School	——|——  所储存的用户信息
+|	|— Student	——|—
+|	|— Teacher	——|
+|	|— db_handler.py	数据的处理
+|	└──models.py	储存各种类
+|—— interface 	方法接口
+|	|—  admin_interface	管理员方法接口
+|	|—  teacher_interface	教师方法接口
+|	|—  student_interface 	学生方法接口
+|	└── common_interface 	通用方法接口
+└──— lib
+   	  └── common 	通用处理
