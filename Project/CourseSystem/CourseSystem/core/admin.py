@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 """管理员视图"""
 from interface import admin_interface
+from interface import common_interface
 from lib import common
+
 # 当前用户信息
 admin_info = {
     "user": None
@@ -64,16 +66,71 @@ def creat_school():
             print(msg)
             break
 
+
 # 管理员创建课程
 @common.auth("admin")
 def creat_course():
-    pass
+    while True:
+        # 1.管理员先调用学校接口显示都有哪些学校
+        flag, msg = common_interface.get_all_school_interface()
+
+        # 如果学校不存在，打印错误信息
+        if not flag:
+            print(msg)
+
+        # 否则就打印学校信息
+        for i, j in enumerate(msg, 1):
+            print(f"编号{i}    学校：{j}")
+
+        # 选择学校为其添加课程
+        choice = input("请输入学校编号:>").strip()
+
+        # 检查输入情况 --- 输入类型
+        if not choice.isdigit():
+            print("请输入数字！")
+            continue
+        # 检查输入范围
+        choice = int(choice)
+        if choice not in range(len(msg) + 1):
+            print("请输入正确的编号！")
+            continue
+
+        # 获取学校名字
+        sch_name = msg[choice - 1]  # 索引值要减一，因为设置的 enumrate 从1开始
+
+        # 选择学校添加课程
+        course_name = input("请输入课程名字:>").strip()
+
+        # 调用接口，管理员创建课程
+        flag, msg = admin_interface.create_course(
+            sch_name, course_name, admin_info.get("user")
+        )
+
+        # 检查返回判断
+        if flag:
+            print(msg)
+            break
+        else:
+            print(msg)
 
 
 # 管理员创建老师
 @common.auth("admin")
 def creat_teacher():
-    pass
+    while True:
+        # 输入老师的名字
+        teacher_name = input("请输入教师姓名:>").strip()
+        # 调用接口创建老师
+        flag, msg = admin_interface.create_teacher(
+            teacher_name, admin_info.get("user")
+        )
+
+        # 检查返回判断
+        if flag:
+            print(msg)
+            break
+        else:
+            print(msg)
 
 
 # 功能函数字典

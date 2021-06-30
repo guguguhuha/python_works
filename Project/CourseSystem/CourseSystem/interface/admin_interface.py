@@ -52,3 +52,36 @@ def create_school(sch_name, sch_addr, user):
 
     # 4.创建成功则返回相应信息
     return True, f"{sch_name} 创建成功！"
+
+
+# 管理员创建课程接口
+def create_course(school_name, course_name, user_name):
+    # 查看课程是否存在
+    # 获取学校之中的课程列表
+    school_pbj = models.School.select(school_name)
+    # 判断当前课程是否在当前学校的列表之中
+    if course_name in school_pbj.course_list:
+        return False, "该课程已创建"
+    # 如果不存在，则由管理员创建该课程
+    admin_obj = models.Admin.select(user_name)
+    admin_obj.create_course(
+        school_pbj, course_name
+    )
+
+    return True, f"{course_name}创建成功，已绑定到{school_name}"
+
+
+# 管理员创建老师接口
+def create_teacher(teacher_name, user, pwd="123"):
+    # 1.判断老师是否存在
+    teacher_obj = models.Teacher.select(teacher_name)
+
+    # 检查情况
+    if teacher_obj:
+        return False, "该老师已存在"
+
+    # 不存在则创建
+    admin_obj = models.Admin.select(user)
+    admin_obj.create_teacher(teacher_name, pwd)
+
+    return True, f"教师：{teacher_name} 创建成功！"

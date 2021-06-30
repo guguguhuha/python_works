@@ -1,19 +1,55 @@
 # -*- coding:utf-8 -*-
 """学生视图"""
 from lib import common
+from interface import student_interface
+
 # 学生名单列表
 student_info = {
     "user": None
 }
 
+
 # 学生注册
 def register():
-    pass
+    while True:
+        user = input("请输入姓名:>").strip()
+        pwd = input("请输入密码:>").strip()
+        re_pwd = input("请再次输入密码:>").strip()
+
+        # 检查密码的一致性
+        if pwd != re_pwd:
+            print("两次密码不一致！")
+            continue
+        else:
+            # 调用接口层注册
+            flag, msg = student_interface.register(user, pwd)
+
+            # 检查返回
+            if flag:
+                print(msg)
+                break
+            else:
+                print(msg)
 
 
 # 学生登录
 def login():
-    pass
+    while True:
+        user = input("请输入用户名:>").strip()
+        pwd = input("请输入密码:>").strip()
+
+        # 调用登录接口
+        flag,msg = student_interface.login(user, pwd)
+
+        # 判断返回
+        if not flag:
+            print(msg)
+        else:
+            print(msg)
+            # 添加当前用户状态
+            student_info["user"] = user
+            break
+
 
 
 # 学生选择学校
