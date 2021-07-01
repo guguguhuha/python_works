@@ -4,6 +4,7 @@ import os
 from conf import settings
 from db import models
 
+
 # 查看所有学校
 def get_all_school_interface():
     # 获取所有的学校列表
@@ -32,7 +33,6 @@ def get_course(school_name):
         return False, "该学校下没有课程绑定！"
     else:
         return True, course_list
-
 
 
 if __name__ == "__main__":

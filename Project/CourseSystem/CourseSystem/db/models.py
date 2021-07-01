@@ -100,6 +100,25 @@ class Student(Base):
         # 学生课程的分数
         self.score_dict = {}
 
+    # 添加学校
+    def choose_sch(self, sch_name):
+        self.school = sch_name
+        self.save()
+
+    # 添加课程
+    def add_course(self, course_name):
+        self.course_list.append(course_name)
+        # 创建初始分数 0 分
+        self.score_dict[course_name] = 0
+        self.save()
+
+        # 找出课程对象，将该学生添加至学生列表中
+        course_obj = Course.select(course_name)
+        course_obj.stu_list.append(
+            self.user
+        )
+        course_obj.save()
+
 
 # 课程类
 class Course(Base):
